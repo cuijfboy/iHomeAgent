@@ -148,7 +148,7 @@
             <RestoreSysVw>1</RestoreSysVw>
           </Target>
           <RunDebugAfterBuild>0</RunDebugAfterBuild>
-          <TargetSelection>10</TargetSelection>
+          <TargetSelection>-1</TargetSelection>
           <SimDlls>
             <CpuDll></CpuDll>
             <CpuDllArguments></CpuDllArguments>
@@ -374,6 +374,26 @@
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>app\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>agent.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\agent.c</FilePath>
+            </File>
+            <File>
+              <FileName>fifo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\fifo.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\nrf2.c</FilePath>
             </File>
           </Files>
         </Group>

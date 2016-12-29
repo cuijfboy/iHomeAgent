@@ -14,11 +14,11 @@
 #ifndef GZLL_PARAMETERS_H__
 #define GZLL_PARAMETERS_H__
 
-#define GZLL_DEFAULT_CHANNEL_TAB {6, 27, 44, 65, 79}
+#define GZLL_DEFAULT_CHANNEL_TAB {2, 20, 40, 60, 75}
 #define GZLL_DEFAULT_CHANNEL_TAB_SIZE 5               
 
-#define GZLL_DEFAULT_ADDRESS_PIPE0 {1, 4, 7, 10, 0}          
-#define GZLL_DEFAULT_ADDRESS_PIPE1 {2, 5, 8, 11, 1}       
+#define GZLL_DEFAULT_ADDRESS_PIPE0 {12, 34, 56, 78, 0}          
+#define GZLL_DEFAULT_ADDRESS_PIPE1 {90, 12, 34, 56, 1}       
 #define GZLL_DEFAULT_ADDRESS_PIPE2 3                       
 #define GZLL_DEFAULT_ADDRESS_PIPE3 4                        
 #define GZLL_DEFAULT_ADDRESS_PIPE4 5                        
