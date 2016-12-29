@@ -465,6 +465,11 @@
               <FileType>1</FileType>
               <FilePath>.\hal\nrf24le1\hal_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>hal_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\hal\nrf24le1\hal_flash.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

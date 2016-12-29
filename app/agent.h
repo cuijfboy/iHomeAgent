@@ -6,14 +6,6 @@
 #include <string.h>
 #include "nrf24le1.h"
 
-#define COMMON_ADDR					0x00
-
-#define UART_ADDR						0xFF
-#define UART_PIP						0xFF
-#define UART_SEQ 						0xFF
-
-#define MY_ADDR							0x0A
-
 #define UART_DIR_MASK       0xE7
 #define PORT_0              P0
 #define PORT_0_DIR          P0DIR

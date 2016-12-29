@@ -64,7 +64,7 @@ void uart_rx_msg(struct uart_msg_fifo *fifo)
 			{
 				uart_msg_state = UART_STA_DONE;
 				uart_msg_fifo_offer(fifo, uart_msg, uart_msg_size);
-				uart_put_data(uart_msg, uart_msg_size);
+				//uart_put_data(uart_msg, uart_msg_size);
 			}                
 			continue;
 		}

@@ -21,6 +21,7 @@ void nrf_rx_msg(struct nrf_msg_fifo *fifo)
 void nrf_tx_msg(struct nrf_msg_fifo *fifo)
 {
 	uint8_t msg[MSG_SIZE], len, pip;
+	uint8_t tmp_addr[GZLL_ADDRESS_WIDTH] = GZLL_DEFAULT_ADDRESS_PIPE1;
 	
 	if(nrf_msg_fifo_empty(fifo))
 		return;
@@ -29,7 +30,11 @@ void nrf_tx_msg(struct nrf_msg_fifo *fifo)
 		gzll_goto_idle();
 	
 	while(nrf_msg_fifo_poll(fifo, msg, &len, &pip))
-		gzll_tx_data(msg, len, pip);
+	{
+		tmp_addr[0] = msg[1];
+		hal_nrf_set_address(HAL_NRF_PIPE2, tmp_addr);
+		gzll_tx_data(msg, len, 2);
+	}
 	
 	gzll_rx_start();		
 }

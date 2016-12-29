@@ -30,7 +30,7 @@
 #define GZLL_DEFAULT_PARAM_TX_ATTEMPTS_PR_CHANNEL_WHEN_SYNC_OFF (GZLL_DEFAULT_CHANNEL_TAB_SIZE * 7)
 
 #define GZLL_DEFAULT_PARAM_HOST_MODE 0
-#define GZLL_DEFAULT_PARAM_RX_PIPES 0x3f
+#define GZLL_DEFAULT_PARAM_RX_PIPES 0x02
 #define GZLL_DEFAULT_PARAM_CRYPT_PIPES 0x00
 #define GZLL_DEFAULT_PARAM_RX_TIMEOUT 0                 // [# GZLL_DEFAULT_PARAM_RX_PERIODs]
 #define GZLL_DEFAULT_PARAM_RX_PERIOD 1008               // [us]
@@ -47,8 +47,8 @@
 // Static parameters  
 #define GZLL_DATARATE GZLL_DR_2MBPS
 #define GZLL_MAX_CHANNEL_TAB_SIZE 16                      // [# channels]              
-#define GZLL_MAX_FW_PAYLOAD_LENGTH 16                     // [bytes]
-#define GZLL_MAX_ACK_PAYLOAD_LENGTH 10                    // [bytes]
+#define GZLL_MAX_FW_PAYLOAD_LENGTH 32                     // [bytes]
+#define GZLL_MAX_ACK_PAYLOAD_LENGTH 0                     // [bytes]
 #define GZLL_MAX_CRYPT_PIPES 0                            // [# pipes]
 
 #ifdef __C51__
