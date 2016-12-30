@@ -19,8 +19,8 @@
 #define NV_ADDR_ADDR				0xFA00
 
 #define STA_ACK_FLAG        0x80
-#define STA_UART_FLAG		0x40
-#define STA_PIP_MASK		0x3F
+#define STA_UART_FLAG				0x40
+#define STA_PIP_MASK				0x3F
 
 #define CMD_NOP             0x00
 #define CMD_GET_PORT	    	0x01
@@ -46,9 +46,9 @@ static uint8_t my_addr;
 
 void agent_set_my_addr(void);
 void agent_task(uint8_t type, uint8_t *in, uint8_t in_len);
-uint8_t agent_atcion( uint8_t src, uint8_t dst, uint8_t sta, uint8_t seq,
+uint8_t agent_action( uint8_t src, uint8_t dst, uint8_t sta, uint8_t seq,
 											uint8_t *dat, uint8_t dat_len,
-											uint8_t *out_dat, uint8_t* out_dat_len)
+											uint8_t *out_dat, uint8_t* out_dat_len);
 
 void agent_init(struct uart_msg_fifo *uart_msg_rx_fifo_tmp,
 								struct uart_msg_fifo *uart_msg_tx_fifo_tmp,
@@ -98,7 +98,7 @@ void agent_task(uint8_t type, uint8_t *in, uint8_t in_len)
 {
 	uint8_t pip, out[MSG_SIZE], out_len, *out_dat, out_dat_len, res;
 
-	pip = sta & STA_PIP_MASK;
+	pip = in[2] & STA_PIP_MASK;
 	out_dat = out + 4;
 
 	// src, dst, sta, seq, dat, dat_len, out_dat, out_dat_len
@@ -120,10 +120,10 @@ void agent_task(uint8_t type, uint8_t *in, uint8_t in_len)
 		nrf_msg_fifo_offer(nrf_msg_tx_fifo, in, in_len, pip);
 	}
 
-	if(res_code & RES_FWD_UART)
+	if(res & RES_FWD_UART)
 		uart_msg_fifo_offer(uart_msg_tx_fifo, in, in_len);
 
-	if(res_code & RES_REP_SRC)
+	if(res & RES_REP_SRC)
 	{
 		// out_src = my_addr
 		out[0] = my_addr;
@@ -142,7 +142,7 @@ void agent_task(uint8_t type, uint8_t *in, uint8_t in_len)
 	}
 }
 
-uint8_t agent_atcion( uint8_t src, uint8_t dst, uint8_t sta, uint8_t seq,
+uint8_t agent_action( uint8_t src, uint8_t dst, uint8_t sta, uint8_t seq,
 											uint8_t *dat, uint8_t dat_len,
 											uint8_t *out_dat, uint8_t* out_dat_len)
 {
